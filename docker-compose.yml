@@ -10,5 +10,16 @@ services:
       - "5173:5173"
     volumes:
       - ./frontend:/app
+      - /app/node_modules
     stdin_open: true
     tty: true
+
+  websocket-server:
+    build:
+      context: ./websocket-server
+    container_name: websocket_server
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./websocket-server:/app
+      - /app/node_modules
